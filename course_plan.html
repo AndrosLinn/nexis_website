@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexis IELTS</title>
+
+  <!-- Icon -->
+  <link rel="icon" href="img/logo.png">
+
+  <!-- MDBootstrap CSS (Local) -->
+  <link href="css/mdb.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome (Local) -->
+  <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.css">
+
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand: #0d3b7c;
+      --muted: #555;
+      --card-bg: linear-gradient(180deg, #fff, #f8fbff);
+      --shadow: 0 6px 20px rgba(13, 59, 124, 0.06);
+      --gap: 18px;
+      --container-width: 1100px;
+    }
+
+    body {
+      background-color: #F5F7FA;
+    }
+
+    .page-inner {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .hero {
+      background: #fff;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .hero .title {
+      color: var(--brand);
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .hero .subtitle {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* unified card style */
+    .card-box {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(13, 59, 124, 0.04);
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-box {
+      background-color: #0d3b7c;
+      padding: 8px 0;
+      text-align: left;
+    }
+
+    .image-box .h4 {
+      color: #ffffff;
+      margin: 0;
+      font-weight: bolder;
+    }
+
+    .text-muted {
+      color: #ffffff !important;
+      font-size: 18px;
+      font-weight: lighter;
+    }
+
+    .section-box {
+      margin-top: 12px;
+      flex: 1;
+    }
+
+    .section-box ul {
+      margin: 0 0 0 18px;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .section-box li {
+      margin: 6px 0;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    /* layout grid for courses */
+    .courses-row {
+      display: flex;
+      gap: var(--gap);
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .course-col {
+      flex: 1 1 48%;
+      min-width: 280px;
+      display: flex;
+    }
+
+    .course-col .card-box {
+      width: 100%;
+    }
+
+    /* features full width */
+    .features-row {
+      margin-top: 6px;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .courses-row {
+        flex-direction: column;
+      }
+
+      .course-col {
+        flex-basis: 100%;
+      }
+
+      .page-inner {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo" style="width: 50px;height: auto"></a>
+      <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Home</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="course_plan.html">
+              <button type="button" class="btn1 active-btn" data-mdb-ripple-init>Course Plans</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="teacher_profile.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Teacher's Profile</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="student_talks.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Students’ Talks</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <div class="page-inner">
+
+    <div class="hero">
+      <div>
+        <p class="title">Course Plans</p>
+        <p class="subtitle">Choose the course structure that fits your schedule and goals — both options include full
+          IELTS coverage and small-group attention.</p>
+      </div>
+      <div>
+        <a href="teacher_profile.html" class="btn btn-outline-primary">Meet the Teacher</a>
+      </div>
+    </div>
+
+    <!-- Courses (two-column on desktop) -->
+    <div class="courses-row" role="list">
+      <div class="course-col" role="listitem">
+        <div class="card-box">
+          <div class="image-box">
+            <p class="h4">Premium Intensive<br><small class="text-muted">Fast-Track (5 weeks)</small></p>
+          </div>
+          <div class="section-box">
+            <ul>
+              <li style="text-align: left;"><strong>Duration:</strong> 1.5 months (5 weeks)</li>
+              <li style="text-align: left;"><strong>Entry Requirement:</strong> Minimum B2 (Upper-Intermediate)</li>
+              <li style="text-align: left;"><strong>Class Size:</strong> 6–10 participants</li>
+              <li style="text-align: left;"><strong>intended for:</strong> Candidates seeking accelerated and focused preparation within a short timeframe</li>
+              <li style="text-align: left;"><strong>Tuition Fee:</strong> 300,000 MMK (Entire Course)</li>
+            </ul>
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:12px;">
+            <a href="https://t.me/khloeed" target="_blank" class="btn btn-primary btn-sm">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-col" role="listitem">
+        <div class="card-box">
+          <div class="image-box">
+            <p class="h4">Weekend Premium<br><small class="text-muted">Steady Progress (10 weeks)</small></p>
+          </div>
+          <div class="section-box">
+            <ul>
+              <li style="text-align: left;"><strong>Duration:</strong> 2.5 months (10 weeks)</li>
+              <li style="text-align: left;"><strong>Entry Requirement:</strong> Minimum B2 (Upper-Intermediate)</li>
+              <li style="text-align: left;"><strong>Class Size:</strong> 6–10 participants</li>
+              <li style="text-align: left;"><strong>Intended for:</strong> Candidates who prefer a gradual learning pace and are not constrained by time</li>
+              <li style="text-align: left;"><strong>Tuition Fee:</strong> 300,000 MMK (Entire Course)</li>
+            </ul>
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:12px;">
+            <a href="https://t.me/khloeed" target="_blank" class="btn btn-primary btn-sm">Enroll</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features (full-width, single card) -->
+    <div class="features-row">
+      <div class="card-box">
+        <div class="image-box">
+          <p class="h4">Features of Both Courses</p>
+        </div>
+        <div class="section-box">
+          <ul>
+            <li style="text-align: left;">Comprehensive training across all four IELTS components: Listening, Reading, Writing, and Speaking</li>
+            <li style="text-align: left;">Individualized feedback and guidance on practice tasks</li>
+            <li style="text-align: left;">Periodic mock examinations with scoring and review</li>
+            <li style="text-align: left;">Small-group instruction to ensure personalized attention and interaction</li>
+            <li style="text-align: left;">Refined study resources and focused homework plans</li>
+            <li style="text-align: left;">Structured self-study schedules to maximise progress between classes</li>
+          </ul>
+        </div>
+        <div style="display:flex; justify-content:flex-end; margin-top:12px;">
+          <a href="https://t.me/khloeed" target="_blank" class="btn btn-primary">Enroll</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section>
+      <div class="container text-center text-md-start mt-5 pt-5 pb-4 text-black">
+        <div class="row mt-3">
+          <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Explore</h6>
+            <p><a href="course_plan.html" class="text-reset">Course Plan</a></p>
+            <p><a href="teacher_profile.html" class="text-reset">Teacher's Profile</a></p>
+            <p><a href="student_talks.html" class="text-reset">Student Talks</a></p>
+          </div>
+          <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fa-solid fa-envelope"></i><span class="ms-2">nexis.academia@gmail.com</span></p>
+            <a href="https://t.me/khloeed" target="_blank">
+              <p><i class="fa-brands fa-telegram"></i><span class="ms-2">@khloeed</span></p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-bottom text-center p-4">
+      © 2025 Copyright:
+      <a class="text-reset fw-bold" href="https://www.facebook.com/profile.php?id=61581958809339" target="_blank"
+        rel="noopener">nexis.com</a>
+    </div>
+  </footer>
+
+  <!-- MDBootstrap JS (Local) -->
+  <script defer src="js/mdb.umd.min.js"></script>
+  <script defer src="fontawesome-free-7.1.0-web/js/all.js"></script>
+  <script defer src="scripts.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const carouselEl = document.getElementById('carouselHero');
+      if (window.mdb && carouselEl) {
+        const instance = window.mdb.Carousel.getInstance(carouselEl) || new window.mdb.Carousel(carouselEl);
+        instance.cycle();
+      }
+    });
+  </script>
+</body>
+
+</html>

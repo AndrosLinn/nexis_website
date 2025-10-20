@@ -1,0 +1,249 @@
+/* Theme: Clean, elegant, same blue/white colorway */
+:root {
+  --bg: #F5F7FA;
+  --surface: #ffffff;
+  --muted-surface: #e9f0f5;
+  --text: #0b1320;
+  --muted-text: #4b5563;
+  --primary: #0d3b7c;
+  /* existing blue */
+  --primary-50: #e6eff9;
+  --ring: rgba(13, 59, 124, 0.25);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, .08);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, .12);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, .16);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Base */
+* {
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto
+}
+
+a {
+  color: inherit;
+  text-decoration: none
+}
+
+/* Layout helpers */
+.container-nx {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  padding: 32px 0
+}
+
+.btn1 {
+  color: #000;
+  background-color: #cce5ff;
+  width: 170px;
+  height: 40px;
+  padding: 0px;
+  font-size: 15px;
+  border-radius: 20px;
+  border-color: transparent;
+  transition: background-color 0.3s, color 0.3s;
+
+  @media screen and (max-width: 1000px) {
+    background-color: transparent;
+    border: none;
+    width: 160px;
+    height: 40px;
+    text-align: left;
+    font-size: 12px;
+    box-shadow: none;
+    border-radius: 0px 20px 20px 0px;
+    padding: 8px 20px;
+  }
+}
+
+.btn1:hover {
+  background-color: #0d3b7c;
+  color: #ffffff;
+}
+
+.active-btn {
+  background-color: #0d3b7c;
+  color: #ffffff;
+  transition: background-color 0.3s, color 0.3s;
+
+  @media screen and (max-width: 1000px) {
+    color: #0d3b7c;
+    background-color: transparent;
+    border: none;
+    width: 160px;
+    height: 40px;
+    text-align: left;
+    font-size: 12px;
+    box-shadow: none;
+    border-radius: 0px 20px 20px 0px;
+    padding: 8px 20px;
+  }
+}
+
+.active-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Cards/boxes */
+.card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease)
+}
+
+.section-box {
+  background: var(--muted-surface);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+}
+
+.image-box,
+.title-box {
+  background: var(--primary);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  padding: 44px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.circle-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 18px;
+}
+
+/* Typography tweaks */
+.h4,
+h4 {
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.3;
+  margin: 0
+}
+
+p {
+  color: var(--text);
+  line-height: 1.7
+}
+
+ul {
+  line-height: 1.8;
+  list-style: disc inside
+}
+
+/* Borders */
+.border {
+  border: 1px solid rgba(0, 0, 0, .08) !important;
+  border-radius: var(--radius-sm) !important
+}
+
+/* Footer */
+footer {
+  background: var(--surface);
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, .06);
+  color: #000
+}
+
+footer .footer-bottom {
+  background: var(--surface);
+  box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, .15);
+  color: #000
+}
+
+/* Interactive bits */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease)
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0)
+}
+
+.read-more {
+  position: relative
+}
+
+.read-more .read-more-toggle {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px
+}
+
+.read-more .fade {
+  display: inline
+}
+
+.read-more[data-expanded="true"] .fade {
+  display: inline
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 8px
+}
+
+/* Responsive navbar buttons on small screens */
+@media (max-width: 1000px) {
+
+  .navbar .btn,
+  .navbar .active-btn {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0 20px 20px 0;
+    color: var(--primary)
+  }
+}

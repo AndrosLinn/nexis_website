@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexis IELTS</title>
+
+  <!-- Icon -->
+  <link rel="icon" href="img/logo.png">
+
+  <!-- MDBootstrap CSS (Local) -->
+  <link href="css/mdb.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome (Local) -->
+  <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.css">
+
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand: #0d3b7c;
+      --muted: #555;
+      --card-bg: linear-gradient(180deg, #fff, #f8fbff);
+      --shadow: 0 6px 20px rgba(13, 59, 124, 0.06);
+      --gap: 18px;
+      --container-width: 1100px;
+    }
+
+    body {
+      background-color: #F5F7FA;
+    }
+
+    /* centered hero */
+    .hero {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(13, 59, 124, 0.08);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      color: #0d3b7c;
+      margin: 0 0 6px 0;
+      font-size: 1.5rem;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #555;
+    }
+
+    .image-box {
+      background-color: #0d3b7c;
+      color: #fff;
+      border-radius: 10px;
+      padding: 28px 16px;
+      text-align: center;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-box {
+      background: linear-gradient(180deg, #fff, #f8fbff);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    /* restored: image-left card layout on desktop, stacked on small screens */
+    .testimonial-grid {
+      gap: 1.25rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .testimonial-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(13, 59, 124, 0.06);
+      display: flex;
+      background: #fff;
+      height: 100%;
+      flex-direction: row;
+      text-align: left;
+      max-width: 1100px;
+      width: auto;
+    }
+
+    .testimonial-card>.testimonial-photo-wrapper {
+      flex: 0 0 38%;
+    }
+
+    .testimonial-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-radius: 0;
+    }
+
+    .testimonial-body {
+      position: relative;
+      padding: 16px 56px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    /* badge moved to top-right corner of the body on desktop */
+    .badge-score {
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      color: #fff;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      box-shadow: 0 4px 10px rgba(3, 37, 76, 0.12);
+    }
+
+    /* spacing between title and badge and justified paragraph text */
+    .testimonial-body .d-flex>div strong {
+      display: block;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .testimonial-body p {
+      text-align: justify;
+      text-justify: inter-word;
+      margin-bottom: 0.6rem;
+    }
+
+    .read-more-toggle {
+      font-weight: 600;
+    }
+
+    @media (max-width: 992px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .image-box {
+        padding: 22px;
+      }
+
+      .testimonial-card {
+        max-width: 340px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .testimonial-card>.testimonial-photo-wrapper {
+        flex: 0 0 auto;
+      }
+
+      .testimonial-photo {
+        height: 180px;
+        border-radius: 8px 8px 0 0;
+      }
+
+      .testimonial-body {
+        align-items: center;
+        padding: 16px;
+      }
+
+      /* on small screens place badge inline at top-right of header */
+      .badge-score {
+        position: static;
+        margin-left: auto;
+        box-shadow: none;
+        top: auto;
+        right: auto;
+      }
+
+      .testimonial-body .d-flex {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .testimonial-body .d-flex>div {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Nexis logo"
+          style="width: 50px;height: auto"></a>
+      <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Home</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="course_plan.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Course Plans</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="teacher_profile.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Teacher's Profile</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="student_talks.html">
+              <button type="button" class="btn1 active-btn" data-mdb-ripple-init>Students’ Talks</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /Navbar -->
+
+  <div class="container my-4">
+    <!-- Hero -->
+    <div class="hero">
+      <div>
+        <h1>Student Talks</h1>
+        <p>Success stories and testimonials from our recent IELTS students.</p>
+      </div>
+      <div class="text-end d-none d-md-block">
+        <a href="course_plan.html" class="btn btn-primary">Explore Courses</a>
+      </div>
+    </div>
+
+    <!-- Grid of testimonials (refined) -->
+    <div class="row testimonial-grid">
+      <!-- Card 1 -->
+      <div class="col-12 col-md-6 col-lg-5 mx-auto d-flex justify-content-center">
+        <div class="testimonial-card">
+          <div class="testimonial-body" style="flex:1;">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <strong>Khant Nyar Si Thu</strong><br><small class="text-muted">Overall - 8.0</small>
+              </div>
+              <div class="badge-score">8.0</div>
+            </div>
+            <p class="mb-2 read-more-text" data-truncate="300">
+              I got an overall Band 8 (Listening 9, Reading 8.5, Writing 7, Speaking 7) after taking Tr Khloe’s
+              intensive IELTS course, and I’m really happy with the results. Her lessons were well-organized and covered
+              all four skills in a practical way. My Listening improved a lot because she showed us how to spot
+              distractors and predict answers. The Reading classes helped me read faster and find the right information
+              without getting lost. In Writing, she taught me how to structure my essays and use better vocabulary,
+              which made me feel much more confident in both tasks. And for Speaking, her mock interviews and feedback
+              really helped me sound more natural and fluent. Honestly, her course made a big difference in my English
+              and helped me reach my goal score.
+            </p>
+            <div class="mt-auto text-end">
+              <button class="read-more-toggle btn btn-link p-0" type="button">Read more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-md-6 col-lg-5 mx-auto d-flex justify-content-center">
+        <div class="testimonial-card">
+          <div class="testimonial-body" style="flex:1;">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <strong>In Mai Kha</strong><br><small class="text-muted">Overall - 7.5</small>
+              </div>
+              <div class="badge-score">7.5</div>
+            </div>
+            <p class="mb-2 read-more-text" data-truncate="300">
+              Joining Teacher Khloe’s intensive IELTS course was honestly one of the best choices I’ve made. I learned
+              so much from her. Her lessons were always engaging and easy to follow. My Listening and Reading got
+              sharper, my Writing became more organized, and I started speaking with more confidence. She’s so patient
+              and genuinely cares about her students’ progress. Thanks to her, I achieved an overall Band 7.5, and I’m
+              really proud of how far I’ve come.What I appreciated most was how she kept track of my progress and
+              encouraged self-study. She gave us personalized study plans, checked our weekly goals, and always made
+              sure we stayed consistent. Her support didn’t stop in class. She followed up on our practice and reminded
+              us to focus on our weak points.
+            </p>
+            <div class="mt-auto text-end">
+              <button class="read-more-toggle btn btn-link p-0" type="button">Read more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-md-6 col-lg-5 mx-auto d-flex justify-content-center">
+        <div class="testimonial-card">
+          <div class="testimonial-body" style="flex:1;">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <strong>Khant Zin Thein</strong><br><small class="text-muted">Overall - 7.0</small>
+              </div>
+              <div class="badge-score">7.0</div>
+            </div>
+            <p class="mb-2 read-more-text" data-truncate="300">
+              I attended this class and achieved an overall band score of 7. I’d say that Teacher Khloe’s teaching style
+              is excellent, as she clearly explains how to approach each question type effectively. Although I used to
+              struggle with productive skills such as speaking and writing, I performed well in my previous IELTS exam
+              and scored band 7 in writing. Among the four skills, what I like most is the writing techniques she
+              teaches. After joining this class, I can confidently say that you’ll gain confidence in academic writing.
+              Before joining the class, I only had a B2 level in skills such as reading and writing. After I joined, I
+              improved my overall English skills to a solid B2, and by applying the exam strategies provided by Teacher
+              Khloe, I achieved a C1 level in the IELTS exam. Of course, the score you get also depends on how much
+              effort you dedicate to your learning journey. If you do homework regularly and study consistently while
+              using the exam tactics from this class, it’s very likely that you’ll achieve your target band score. I
+              highly recommend joining this class, as it offers quality methods to improve not only your academic
+              English but also your general English skills.
+            </p>
+            <div class="mt-auto text-end">
+              <button class="read-more-toggle btn btn-link p-0" type="button">Read more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-12 col-md-6 col-lg-5 mx-auto d-flex justify-content-center">
+        <div class="testimonial-card">
+          <div class="testimonial-body" style="flex:1;">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <strong>Myat Haythi Khin</strong><br><small class="text-muted">Student</small>
+              </div>
+              <div class="badge-score">—</div>
+            </div>
+            <p class="mb-2 read-more-text" data-truncate="300">
+              The reason why I like this IELTS class is that it makes everything easier to understand. It gives us
+              useful hints, structures, and explanations that really help me learn better.This class has significantly
+              improved my writing skills, the teacher clearly explained how to structure my essays and what to be
+              careful about. Thanks to her guidance, my writing is getting better and better. It’s not perfect yet, but
+              I can see real improvement every time I write.I would 100% recommend this class! This is the best class
+              ever. Rather than attending other programs, this one is truly the best. I would rate this class 5 stars
+              and if I could rate it higher, I’d give it 6!
+            </p>
+            <div class="mt-auto text-end">
+              <button class="read-more-toggle btn btn-link p-0" type="button">Read more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-12 col-md-6 col-lg-5 mx-auto d-flex justify-content-center">
+        <div class="testimonial-card">
+          <div class="testimonial-body" style="flex:1;">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <strong>Pyae Pyae Hlaing</strong><br><small class="text-muted">Student</small>
+              </div>
+              <div class="badge-score">—</div>
+            </div>
+            <p class="mb-2 read-more-text" data-truncate="300">
+              This IELTS class has really improved my English skills. Teacher Khloe is knowledgeable, patient, and
+              always gives helpful feedback. I’ve learned so many useful techniques for the test, especially in Reading.
+              I would definitely recommend this class to anyone preparing for IELTS. Plus, the self-study plan,which
+              includes daily reading, listening, and vocabulary exercises, teacher gave me really boosted my English
+              level. Teacher Khloe also tracks my progress weekly so it gave me motivation to study.
+            </p>
+            <div class="mt-auto text-end">
+              <button class="read-more-toggle btn btn-link p-0" type="button">Read more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer (kept same) -->
+  <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section>
+      <div class="container text-center text-md-start mt-5 pt-5 pb-4 text-black">
+        <div class="row mt-3">
+          <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Explore</h6>
+            <p><a href="course_plan.html" class="text-reset">Course Plan</a></p>
+            <p><a href="teacher_profile.html" class="text-reset">Teacher's Profile</a></p>
+            <p><a href="student_talks.html" class="text-reset">Student Talks</a></p>
+          </div>
+          <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fa-solid fa-envelope"></i><span class="ms-2">nexis.academia@gmail.com</span></p>
+            <a href="https://t.me/khloeed" target="_blank">
+              <p><i class="fa-brands fa-telegram"></i><span class="ms-2">@khloeed</span></p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer-bottom text-center p-4">
+      © 2025 Copyright:
+      <a class="text-reset fw-bold" href="https://www.facebook.com/profile.php?id=61581958809339" target="_blank"
+        rel="noopener">nexis.com</a>
+    </div>
+  </footer>
+
+  <!-- MDBootstrap JS (Local) -->
+  <script defer src="js/mdb.umd.min.js"></script>
+  <script defer src="fontawesome-free-7.1.0-web/js/all.js"></script>
+  <script defer src="scripts.js"></script>
+
+  <script>
+    // Read-more truncation toggle
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.read-more-text').forEach(function (el) {
+        const max = parseInt(el.getAttribute('data-truncate') || '300', 10);
+        const full = el.textContent.trim();
+        if (full.length <= max) {
+          const btn = el.parentElement.querySelector('.read-more-toggle');
+          if (btn) btn.style.display = 'none';
+          return;
+        }
+        const short = full.slice(0, max).trim() + '…';
+        el.dataset.full = full;
+        el.textContent = short;
+        const btn = el.parentElement.querySelector('.read-more-toggle');
+        if (!btn) return;
+        btn.textContent = 'Read more';
+        btn.addEventListener('click', function () {
+          if (btn.classList.contains('expanded')) {
+            el.textContent = short;
+            btn.classList.remove('expanded');
+            btn.textContent = 'Read more';
+          } else {
+            el.textContent = el.dataset.full;
+            btn.classList.add('expanded');
+            btn.textContent = 'Show less';
+          }
+        });
+      });
+
+      // carousel start if present
+      const carouselEl = document.getElementById('carouselHero');
+      if (window.mdb && carouselEl) {
+        const instance = window.mdb.Carousel.getInstance(carouselEl) || new window.mdb.Carousel(carouselEl);
+        instance.cycle();
+      }
+    });
+  </script>
+</body>
+
+</html>

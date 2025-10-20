@@ -1,0 +1,11 @@
+{
+  "name": "NEXIS Academia",
+  "short_name": "NEXIS",
+  "start_url": "/home.html",
+  "display": "standalone",
+  "background_color": "#0d3b7c",
+  "theme_color": "#0d3b7c",
+  "icons": [
+    { "src": "/img/logo.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexis IELTS</title>
+
+  <!-- Icon -->
+  <link rel="icon" href="img/logo.png">
+
+  <!-- MDBootstrap CSS (Local) -->
+  <link href="css/mdb.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome (Local) -->
+  <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.css">
+
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand: #0d3b7c;
+      --muted: #556;
+      --card-bg: linear-gradient(180deg, #fff, #f8fbff);
+      --shadow: 0 6px 20px rgba(13, 59, 124, 0.06);
+      --gap: 20px;
+    }
+
+    body {
+      background: #F5F7FA;
+    }
+
+    .navbar {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(13, 59, 124, 0.06);
+    }
+
+    /* HERO - kept as-is but constrained */
+    .hero {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .hero-row {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-text h1 {
+      color: var(--brand);
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 640px;
+    }
+
+    .teacher-photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(13, 59, 124, 0.08);
+    }
+
+    /* Page sections: unify widths and spacing */
+    .page-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+
+    /* Make section children stretch so Mission & Vision match height */
+    .section {
+      display: flex;
+      gap: var(--gap);
+      margin-bottom: 18px;
+      align-items: stretch;
+    }
+
+    /* Teacher's Profile wider when displayed in its own row */
+    .profile-row .card-box {
+      padding: 20px;
+    }
+
+    /* Small boxes / cards - ensure full-height and column layout */
+    .card-box {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(13, 59, 124, 0.04);
+      box-sizing: border-box;
+
+      /* make cards flex columns so inner content can stretch and controls sit at bottom */
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-header .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(13, 59, 124, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    /* allow section-box to expand inside card-box */
+    .section-box {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      justify-content: flex-start;
+    }
+
+    /* make paragraph text justified across cards and sections */
+    .section-box p,
+    .card-box p,
+    .ach-desc p,
+    .ach-item p {
+      margin: 0;
+      color: #333;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.6;
+    }
+
+    /* read-more controls align right inside each box and stick to bottom */
+    .controls {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 12px;
+    }
+
+    .read-more-toggle {
+      background: transparent;
+      border: 0;
+      color: var(--brand);
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    /* Achievements layout -- consistent title+content pairs and equal heights */
+    .ach-grid {
+      display: flex;
+      gap: 18px;
+      flex-direction: column;
+    }
+
+    .ach-item {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    /* stretch so children equal height */
+    .ach-item .title-box {
+      flex: 0 0 36%;
+      min-width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ach-item .ach-desc {
+      flex: 1;
+      display: flex;
+    }
+
+    .ach-item .ach-desc .card-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ensure card fills height */
+
+    .title-box {
+      padding: 14px;
+      border-radius: 10px;
+      background-color: #0d3b7c;
+      box-shadow: 0 4px 12px rgba(13, 59, 124, 0.04);
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    /* Make mission & vision side-by-side on desktop, equal height */
+    .mv-row {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .mv-row .mv-col {
+      flex: 1;
+      min-width: 180px;
+      display: flex;
+    }
+
+    .mv-row .mv-col .card-box {
+      /* ensure each card fills height and uses column layout (already set) */
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .mv-row .mv-col .section-box {
+      flex: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-row {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .teacher-photo {
+        width: 160px;
+        height: 160px;
+        margin-top: 10px;
+      }
+
+      .section {
+        flex-direction: column;
+      }
+
+      .section .col-left,
+      .section .col-right {
+        flex: unset;
+        width: 100%;
+      }
+
+      .controls {
+        justify-content: flex-start;
+      }
+
+      .ach-grid {
+        gap: 12px;
+      }
+
+      .mv-row {
+        flex-direction: column;
+      }
+
+      .ach-item {
+        flex-direction: column;
+      }
+
+      .ach-item .title-box {
+        min-width: auto;
+        text-align: left;
+        align-items: flex-start;
+        padding-left: 12px;
+      }
+
+      .ach-item .ach-desc .card-box {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Nexis logo"
+          style="width: 50px;height: auto"></a>
+      <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Home</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="course_plan.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Course Plans</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="teacher_profile.html">
+              <button type="button" class="btn1 active-btn" data-mdb-ripple-init>Teacher's Profile</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="student_talks.html">
+              <button type="button" class="btn1" data-mdb-ripple-init>Students’ Talks</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /Navbar -->
+
+  <div class="container my-4 page-inner">
+
+    <!-- HERO (unchanged) -->
+    <div class="hero">
+      <div class="hero-row">
+        <div class="hero-text" style="flex:1;">
+          <h1>Teacher Nadi Yoon Htet (Khloe)</h1>
+          <p>Founder of NEXIS and experienced IELTS instructor — personal test experience (8.0, 8.5, 9.0) plus formal
+            training from IDP and TESOL certification. Strategic, student-centered lessons that build skill, confidence,
+            and independent learning habits.</p>
+          <div class="mt-3">
+            <a href="course_plan.html" class="btn btn-primary btn-rounded">Explore Courses</a>
+          </div>
+        </div>
+        <div style="flex:0 0 auto; text-align:center;">
+          <img src="img/teacher.jpg" alt="Teacher Khloe" class="teacher-photo"
+            onerror="this.src='img/logo.png'; this.style.background='#e9f0f5'">
+        </div>
+      </div>
+    </div>
+
+    <!-- Teacher's Profile - its own row, wider -->
+    <div class="profile-row" style="margin-bottom:18px;">
+      <div class="card-box">
+        <div class="section-header">
+          <div class="icon"><i class="fa-solid fa-user"></i></div>
+          <div>
+            <h5 class="mb-0">Teacher's Profile</h5>
+            <small class="text-muted">Credentials & background</small>
+          </div>
+        </div>
+        <div style="margin-top:12px;">
+          <p style="margin:0;">
+            Teacher Nadi Yoon Htet (Khloe), Founder of NEXIS and IELTS Instructor, is a passionate English language
+            educator dedicated to helping students achieve their IELTS goals. Having taken the IELTS test three times
+            and earning overall band scores of 8.0, 8.5, and 9.0, Khloe brings a wealth of personal experience and
+            professional training to her teaching. She is committed to providing high-quality, student-centered
+            instruction that empowers learners to succeed.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Vision: side-by-side cards -->
+    <div class="mv-row" style="margin-bottom:18px;">
+      <div class="mv-col" style="flex:1;">
+        <div class="card-box">
+          <div class="section-header">
+            <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+            <div>
+              <h5 class="mb-0">Mission</h5>
+            </div>
+          </div>
+          <div class="section-box">
+            <p>At NEXIS, we are dedicated to:
+            <ul>
+              <li style="text-align: left;"><strong>Delivering Excellence in IELTS Training:</strong> Providing
+                structured, effective,
+                and personalized lessons that equip students with the skills and confidence to achieve their target
+                bands.</li>
+              <li style="text-align: left;"><strong>Fostering Independent Learners:</strong> Encouraging students to
+                develop critical
+                thinking, self-discipline, and lifelong learning habits that extend beyond the IELTS exam.</li>
+              <li style="text-align: left;"><strong>Building a Supportive Learning Community:</strong> Creating an
+                environment where
+                learners feel motivated, guided, and inspired to reach their full potential.</li>
+              <li style="text-align: left;"><strong>Integrating Real Experience with Modern Teaching:</strong> Combining
+                real IELTS
+                insights, data-driven strategies, and student-centered teaching methods to ensure measurable progress.
+              </li>
+              <li style="text-align: left;"><strong>Promoting Global Communication:</strong> Helping students master
+                English as a bridge
+                to academic, professional, and personal opportunities worldwide.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-right" style="flex:1;">
+        <div class="card-box">
+          <div class="section-header">
+            <div class="icon"><i class="fa-solid fa-eye"></i></div>
+            <div>
+              <h5 class="mb-0">Vision</h5>
+            </div>
+          </div>
+          <div class="section-box">
+            <p>To empower candidates by
+            <ul>
+              <li style="text-align: left;"><strong>Becoming a Leading Learning Platform:</strong> Establishing NEXIS as
+                a trusted name in IELTS and English education recognized for excellence, innovation, and integrity.</li>
+              <li style="text-align: left;"><strong>Redefining IELTS Preparation:</strong> Shifting the focus from rote
+                learning to meaningful, skill-based education that develops real-world communication and confidence.
+              </li>
+              <li style="text-align: left;"><strong>Integrating Modern Teaching Approaches: </strong> Combining
+                technology, research-based methods, and personalized instruction to enhance the learning experience.
+              </li>
+              <li style="text-align: left;"><strong>Inspiring Lifelong Learners: </strong> Encouraging students to view
+                English not just as a test requirement, but as a lifelong tool for global connection and personal
+                advancement.</li>
+              <li style="text-align: left;"><strong>Driving Positive Change Through Education:</strong> Using the power
+                of language learning to open doors, build opportunities, and inspire individuals to achieve their
+                dreams.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements: title boxes will match section-box height via flex align-stretch -->
+    <div style="margin-top:12px;">
+      <div class="ach-grid">
+        <!-- Achievement 1 (title + content pair) -->
+        <div class="ach-item">
+          <div class="title-box">IELTS Band Scores — 8.0, 8.5, 9.0</div>
+          <div class="ach-desc">
+            <div class="card-box">
+              <p style="margin:0;">Achieving these outstanding scores across three official IELTS tests reflects Teacher
+                Khloe’s exceptional proficiency and practical insight into the exam. She uses this experience to provide
+                targeted strategies and realistic practice for students.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievement 2 -->
+        <div class="ach-item">
+          <div class="title-box">Diploma — Wall Street English</div>
+          <div class="ach-desc">
+            <div class="card-box">
+              <p style="margin:0;">Completed intensive program focused on advanced grammar, fluency, and academic
+                communication — foundation for her teaching approach.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievement 3 -->
+        <div class="ach-item">
+          <div class="title-box">IELTS Training — IDP</div>
+          <div class="ach-desc">
+            <div class="card-box">
+              <p style="margin:0;">Specialized IELTS teacher training to align classroom practice with official
+                assessment criteria and task types.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievement 4 -->
+        <div class="ach-item">
+          <div class="title-box">TESOL — Arizona State</div>
+          <div class="ach-desc">
+            <div class="card-box">
+              <p style="margin:0;">TESOL coursework emphasizing student-centered methods and classroom techniques for
+                diverse learners.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section>
+      <div class="container text-center text-md-start mt-5 pt-5 pb-4 text-black">
+        <div class="row mt-3">
+          <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Explore</h6>
+            <p><a href="course_plan.html" class="text-reset">Course Plan</a></p>
+            <p><a href="teacher_profile.html" class="text-reset">Teacher's Profile</a></p>
+            <p><a href="student_talks.html" class="text-reset">Student Talks</a></p>
+          </div>
+          <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fa-solid fa-envelope"></i><span class="ms-2">nexis.academia@gmail.com</span></p>
+            <a href="https://t.me/khloeed">
+              <p><i class="fa-brands fa-telegram"></i><span class="ms-2">@khloeed</span></p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-bottom text-center p-4">
+      © 2025 Copyright:
+      <a class="text-reset fw-bold" href="https://www.facebook.com/profile.php?id=61581958809339" target="_blank"
+        rel="noopener">nexis.com</a>
+    </div>
+  </footer>
+
+  <!-- MDBootstrap JS (Local) -->
+  <script defer src="js/mdb.umd.min.js"></script>
+  <script defer src="fontawesome-free-7.1.0-web/js/all.js"></script>
+  <script defer src="scripts.js"></script>
+
+  <script>
+    // Read-more toggles (keeps behavior consistent)
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.read-more-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const parent = btn.closest('.section-box, .card-box');
+          const p = parent && parent.querySelector('p');
+          if (!p) return;
+          const full = p.dataset.full || p.textContent.trim();
+          if (!p.dataset.full) p.dataset.full = full;
+          const max = parseInt(parent.getAttribute('data-truncate') || '360', 10);
+          if (!p.dataset.short) p.dataset.short = p.dataset.full.slice(0, max).trim() + '…';
+          if (btn.classList.contains('expanded')) {
+            p.textContent = p.dataset.short;
+            btn.classList.remove('expanded');
+            btn.textContent = 'Read more';
+          } else {
+            p.textContent = p.dataset.full;
+            btn.classList.add('expanded');
+            btn.textContent = 'Show less';
+          }
+        });
+      });
+
+      // init carousel if present
+      const carouselEl = document.getElementById('carouselHero');
+      if (window.mdb && carouselEl) {
+        const instance = window.mdb.Carousel.getInstance(carouselEl) || new window.mdb.Carousel(carouselEl);
+        instance.cycle();
+      }
+    });
+  </script>
+</body>
+
+</html>
